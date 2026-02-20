@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Dokumentation – Timo Schwarz</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🍏 Dynamic Island -->
+<div id="dynamicIsland" class="dynamic-island">
+    <div class="island-content" id="dynamicIslandContent">Hinweis</div>
+</div>
+
+<header class="top-bar">
+    <div class="top-left">
+        <span class="brand-small">Timo Schwarz</span>
+    </div>
+
+    <nav class="top-nav">
+        <button class="nav-link" onclick="window.location.href='alle-anleitungen.html'">Alle Anleitungen</button>
+        <button class="nav-link" onclick="window.location.href='Kategorien/netzlaufwerke.html'">Kategorien</button>
+        <button class="nav-link">Kontakt</button>
+        <button class="nav-link">FAQ</button>
+    </nav>
+
+    <div class="top-right">
+        <button class="primary-btn">Support</button>
+
+        <!-- 🌙 Dark Mode Toggle -->
+        <button id="darkModeToggle" class="dark-toggle">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </button>
+    </div>
+</header>
+
+<main class="page">
+
+<!-- HERO -->
+<section class="hero" style="margin-top: 120px; text-align: center;">
+
+    <h1 class="hero-title">Ich bin dein IT‑Guide</h1>
+    <h2 class="hero-subtitle">Ich mache Technik einfach.</h2>
+    <p class="hero-text">Klare, moderne und verständliche Dokumentationen für deinen Arbeitsalltag.</p>
+
+    <div class="tag-container" style="justify-content:center;">
+        <span class="tag fintech" onclick="window.location.href='Kategorien/netzlaufwerke.html'">Windows</span>
+        <span class="tag edtech" onclick="window.location.href='Kategorien/email-outlook.html'">Outlook</span>
+        <span class="tag tools" onclick="window.location.href='Kategorien/netzlaufwerke.html'">Netzwerk</span>
+        <span class="tag health" onclick="window.location.href='Kategorien/sicherheit.html'">Sicherheit</span>
+        <span class="tag community" onclick="window.location.href='Kategorien/software-tools.html'">Tools</span>
+    </div>
+
+</section>
+
+<!-- KATEGORIEN -->
+<section class="showcase-clean">
+
+    <article class="clean-item" onclick="openOverlay('windows')">
+        <img class="tile-img"
+             src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1471&auto=format&fit=crop">
+        <h3>Windows</h3>
+        <p>Einstellungen, Tipps und Tricks für Windows 10 & 11.</p>
+    </article>
+    
+    <article class="clean-item" onclick="openOverlay('email')">
+        <img class="tile-img" src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=800&auto=format">
+        <h3>E‑Mail & Outlook</h3>
+        <p>Postfach einrichten, Signatur, Archivierung.</p>
+    </article>
+
+    <article class="clean-item" onclick="openOverlay('netzwerk')">
+        <img class="tile-img" src="https://images.unsplash.com/photo-1544603396-e4a163c7c658?q=80&w=1471&auto=format&fit=crop">
+        <h3>Netzwerk</h3>
+        <p>VPN, Netzlaufwerke, WLAN.</p>
+    </article>
+
+    <article class="clean-item" onclick="openOverlay('sicherheit')">
+        <img class="tile-img" src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format">
+        <h3>Sicherheit</h3>
+        <p>Passwörter, MFA, Zero‑Trust.</p>
+    </article>
+
+    <article class="clean-item" onclick="openOverlay('geraeteverwaltung')">
+        <img class="tile-img" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format">
+        <h3>Geräteverwaltung</h3>
+        <p>Intune, Autopilot, Updates.</p>
+    </article>
+
+    <article class="clean-item" onclick="openOverlay('software')">
+        <img class="tile-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format">
+        <h3>Software & Tools</h3>
+        <p>Installationen, Updates, Fehlerbehebung.</p>
+    </article>
+
+</section>
+
+<!-- NEUESTE ANLEITUNGEN -->
+<section style="margin-top:120px;">
+    <h2 style="font-family:'Playfair Display',serif; margin-bottom:20px;">Neueste Anleitungen</h2>
+
+    <a href="Kategorien/netzlaufwerke.html" style="text-decoration:none; color:inherit;">
+        <article class="clean-item" style="padding:30px; cursor:pointer;">
+            <h3>Wie verbinde ich ein Netzlaufwerk?</h3>
+            <p>Schritt‑für‑Schritt Anleitung für Windows 10 & 11.</p>
+        </article>
+    </a>
+
+    <a href="Kategorien/email-outlook.html" style="text-decoration:none; color:inherit;">
+        <article class="clean-item" style="padding:30px; margin-top:20px; cursor:pointer;">
+            <h3>Outlook: Firmenpostfach einrichten</h3>
+            <p>So richtest du dein Exchange‑Konto korrekt ein.</p>
+        </article>
+    </a>
+
+    <a href="Kategorien/sicherheit.html" style="text-decoration:none; color:inherit;">
+        <article class="clean-item" style="padding:30px; margin-top:20px; cursor:pointer;">
+            <h3>Passwort ändern oder zurücksetzen</h3>
+            <p>So änderst du dein Firmenpasswort sicher.</p>
+        </article>
+    </a>
+</section>
+
+</main>
+
+<!-- POPUPS -->
+<div id="overlay-windows" class="overlay">
+    <div class="overlay-window">
+        <button class="close-btn" onclick="closeOverlay('windows')">×</button>
+        <h2>Windows</h2>
+        <p>Windows 10 & 11 Einstellungen, Tipps und Tricks.</p>
+        <a href="Kategorien/netzlaufwerke.html" class="popup-link">➜ Zur Dokumentation</a>
+    </div>
+</div>
+
+<div id="overlay-email" class="overlay">
+    <div class="overlay-window">
+        <button class="close-btn" onclick="closeOverlay('email')">×</button>
+        <h2>E‑Mail & Outlook</h2>
+        <p>Postfach einrichten, Signatur, Archivierung.</p>
+        <a href="Kategorien/email-outlook.html" class="popup-link">➜ Zur Dokumentation</a>
+    </div>
+</div>
+
+<div id="overlay-netzwerk" class="overlay">
+    <div class="overlay-window">
+        <button class="close-btn" onclick="closeOverlay('netzwerk')">×</button>
+        <h2>Netzwerk</h2>
+        <p>VPN, Netzlaufwerke, WLAN und Netzwerkprobleme.</p>
+        <a href="Kategorien/netzlaufwerke.html" class="popup-link">➜ Zur Dokumentation</a>
+    </div>
+</div>
+
+<div id="overlay-sicherheit" class="overlay">
+    <div class="overlay-window">
+        <button class="close-btn" onclick="closeOverlay('sicherheit')">×</button>
+        <h2>Sicherheit</h2>
+        <p>Passwörter, MFA, Zero‑Trust.</p>
+        <a href="Kategorien/sicherheit.html" class="popup-link">➜ Zur Dokumentation</a>
+    </div>
+</div>
+
+<div id="overlay-geraeteverwaltung" class="overlay">
+    <div class="overlay-window">
+        <button class="close-btn" onclick="closeOverlay('geraeteverwaltung')">×</button>
+        <h2>Geräteverwaltung</h2>
+        <p>Intune, Autopilot, Compliance.</p>
+        <a href="Kategorien/geraeteverwaltung.html" class="popup-link">➜ Zur Dokumentation</a>
+    </div>
+</div>
+
+<div id="overlay-software" class="overlay">
+    <div class="overlay-window">
+        <button class="close-btn" onclick="closeOverlay('software')">×</button>
+        <h2>Software & Tools</h2>
+        <p>Installationen, Updates, Fehlerbehebung.</p>
+        <a href="Kategorien/software-tools.html" class="popup-link">➜ Zur Dokumentation</a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <h3>IT Dokumentation</h3>
+        <p>Einfache, klare und zuverlässige Anleitungen für deinen Arbeitsalltag.</p>
+        <div class="footer-copy">© 2026 Timo Schwarz – Alle Rechte vorbehalten.</div>
+    </div>
+</footer>
+
+
+<script>
+/* 🍏 Dynamic Island */
+function showIsland(message) {
+    const island = document.getElementById("dynamicIsland");
+    const content = document.getElementById("dynamicIslandContent");
+
+    content.textContent = message;
+    island.classList.add("show");
+
+    setTimeout(() => {
+        island.classList.remove("show");
+    }, 2500);
+}
+
+/* 🌙 Dark Mode Toggle */
+const toggle = document.getElementById("darkModeToggle");
+
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark");
+}
+
+toggle.addEventListener("click", () => {
+
+    const isDark = document.body.classList.contains("dark");
+
+    if (isDark) {
+        document.body.classList.remove("dark");
+        localStorage.setItem("darkMode", "disabled");
+    } else {
+        document.body.classList.add("dark");
+        localStorage.setItem("darkMode", "enabled");
+    }
+
+    setTimeout(() => {
+        showIsland(isDark ? "☀️ Light Mode aktiviert" : "🌙 Dark Mode aktiviert");
+    }, 50);
+});
+
+
+/* Popups */
+function openOverlay(name) {
+    document.getElementById("overlay-" + name).classList.add("show");
+}
+function closeOverlay(name) {
+    document.getElementById("overlay-" + name).classList.remove("show");
+}
+</script>
+
+<!-- 🍏 KI Chatbot -->
+<div id="chatbot-button" class="chatbot-button">💬</div>
+
+<div id="chatbot-window" class="chatbot-window">
+    <div class="chatbot-header">
+        <span>KI‑Assistent (offline)</span>
+        <button id="chatbot-close" class="chatbot-close">×</button>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+
+    <div class="chatbot-input-area">
+        <input id="chatbot-input" type="text" placeholder="Frage mich etwas …">
+        <button id="chatbot-send" class="chatbot-send">➤</button>
+    </div>
+</div>
+
+<!-- WebLLM Script (lädt das Modell in den Browser) -->
+<script src="https://unpkg.com/@mlc-ai/web-llm@latest/dist/web-llm.min.js"></script>
+
+<script>
+/* 🍏 Chatbot öffnen/schließen */
+const botBtn = document.getElementById("chatbot-button");
+const botWin = document.getElementById("chatbot-window");
+const botClose = document.getElementById("chatbot-close");
+
+botBtn.onclick = () => botWin.classList.add("show");
+botClose.onclick = () => botWin.classList.remove("show");
+
+/* 🍏 Chatbot UI */
+const botMessages = document.getElementById("chatbot-messages");
+const botInput = document.getElementById("chatbot-input");
+const botSend = document.getElementById("chatbot-send");
+
+function botAddMessage(text, sender = "bot") {
+    const msg = document.createElement("div");
+    msg.style.margin = "8px 0";
+    msg.style.padding = "10px 14px";
+    msg.style.borderRadius = "12px";
+    msg.style.maxWidth = "80%";
+    msg.style.lineHeight = "1.4";
+
+    if (sender === "user") {
+        msg.style.background = "#0a84ff";
+        msg.style.color = "white";
+        msg.style.marginLeft = "auto";
+    } else {
+        msg.style.background = "rgba(0,0,0,0.07)";
+        msg.style.color = "#222";
+    }
+
+    msg.textContent = text;
+    botMessages.appendChild(msg);
+    botMessages.scrollTop = botMessages.scrollHeight;
+}
+
+/* ---------------------------------------------------
+   🍏 WebLLM Engine initialisieren (offline KI)
+--------------------------------------------------- */
+
+let webllmEngine = null;
+let webllmReady = false;
+
+(async () => {
+    try {
+        botAddMessage("⏳ Starte lokales KI‑Modell, einen Moment bitte …");
+        webllmEngine = await webllm.createEngine("llama3.1-3b-instruct-q4f32_1-MLC");
+        webllmReady = true;
+        botAddMessage("✅ Lokales KI‑Modell ist bereit. Stelle deine Frage zur IT‑Dokumentation.");
+    } catch (e) {
+        console.error(e);
+        botAddMessage("⚠️ Konnte das lokale KI‑Modell nicht starten.");
+    }
+})();
+
+async function getAIResponse(userMessage) {
+    if (!webllmReady || !webllmEngine) {
+        return "Das KI‑Modell lädt noch. Bitte versuche es gleich erneut.";
+    }
+
+    const response = await webllmEngine.chat.completions.create({
+        messages: [
+            { role: "system", content: "Du bist ein freundlicher IT‑Assistent für diese Website. Antworte kurz, klar und auf Deutsch." },
+            { role: "user", content: userMessage }
+        ]
+    });
+
+    return response.choices[0].message.content;
+}
+
+/* ---------------------------------------------------
+   🍏 Chatbot Senden-Button
+--------------------------------------------------- */
+
+botSend.onclick = async () => {
+    const text = botInput.value.trim();
+    if (!text) return;
+
+    botAddMessage(text, "user");
+    botInput.value = "";
+
+    const loading = document.createElement("div");
+    loading.textContent = "⏳ Einen Moment…";
+    loading.style.margin = "8px 0";
+    botMessages.appendChild(loading);
+    botMessages.scrollTop = botMessages.scrollHeight;
+
+    try {
+        const reply = await getAIResponse(text);
+        loading.remove();
+        botAddMessage(reply);
+    } catch (error) {
+        loading.remove();
+        botAddMessage("⚠️ Fehler: " + error.message);
+        console.error(error);
+    }
+};
+
+/* Enter-Taste zum Senden */
+botInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        botSend.click();
+    }
+});
+</script>
+
+</body>
+</html>

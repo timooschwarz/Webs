@@ -1,0 +1,629 @@
+/* GLOBAL */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f4;
+    color: #1a1a1a;
+    overflow-x: hidden;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* TOP BAR */
+.top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+.top-bar.scrolled { background: rgba(255,255,255,0.9); }
+
+.brand-small {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    color: #222;
+}
+
+.top-nav { display: flex; gap: 16px; }
+
+.nav-link {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover { opacity: 0.6; }
+
+.top-right { display: flex; gap: 10px; }
+
+.ghost-btn, .primary-btn {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ghost-btn:hover, .primary-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+.ghost-btn {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.25);
+    color: #333;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* TITLE */
+.brand-fixed {
+    margin-top: 64px;
+    text-align: center;
+    padding: 40px 16px 10px;
+}
+
+.brand-fixed h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    color: #222;
+}
+
+/* PAGE */
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+}
+
+/* HERO */
+.hero { margin-top: 20px; }
+
+.hero h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    color: #222;
+}
+
+.hero-sub {
+    margin: 0 0 24px;
+    color: #555;
+}
+
+/* TAGS */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    background: #e6e6e9;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333;
+    transition: 0.2s ease;
+}
+
+.tag:hover {
+    background: #dcdce0;
+    transform: translateY(-2px);
+}
+
+.tag::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.fintech::before { background: #8b5cf6; }
+.edtech::before { background: #f97316; }
+.tools::before { background: #6b21a8; }
+.ai::before { background: #dc2626; }
+.health::before { background: #16a34a; }
+.community::before { background: #2563eb; }
+
+/* SHOWCASE */
+.showcase-clean {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.clean-item {
+    padding: 28px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 16px;
+    background: white;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    cursor: pointer;
+}
+
+.clean-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,0,0,0.2);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.clean-item h3 {
+    font-family: "Inter", sans-serif;
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #222;
+}
+
+.clean-item p {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* TILE IMAGES */
+.tile-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: #f0f0f0;
+}
+
+/* POPUPS */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay-window {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    max-width: 600px;
+    width: 90%;
+    color: #222;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 26px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.close-btn:hover { opacity: 0.6; }
+
+.popup-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.popup-tag.edtech { background: #f97316; }
+.popup-tag.tools { background: #6b21a8; }
+.popup-tag.fintech { background: #8b5cf6; }
+.popup-tag.health { background: #16a34a; }
+.popup-tag.ai { background: #dc2626; }
+
+/* POPUP IMAGES */
+.popup-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    background: #f0f0f0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .top-bar { padding: 0 16px; }
+    .top-nav { display: none; }
+    .brand-fixed h1 { font-size: 30px; }
+    .hero h2 { font-size: 30px; }
+}
+
+/* -----------------------------------------
+   🍏 Apple-Style Dark Mode (iOS/macOS)
+------------------------------------------ */
+
+body.dark {
+    background: #1c1c1e;
+    color: #f2f2f7;
+}
+
+body.dark .top-bar {
+    background: rgba(28,28,30,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+}
+
+body.dark .clean-item {
+    background: #2c2c2e;
+    border-color: rgba(255,255,255,0.06);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+body.dark .clean-item:hover {
+    background: #3a3a3c;
+}
+
+body.dark .overlay-window {
+    background: #2c2c2e;
+    color: #f2f2f7;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+body.dark .hero h1,
+body.dark .hero h2,
+body.dark .hero p {
+    color: #ffffff !important;
+}
+
+body.dark a {
+    color: #0a84ff;
+}
+
+/* -----------------------------------------
+   🌙 Dark Mode Toggle (Animated)
+------------------------------------------ */
+
+.dark-toggle {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: #e5e5ea;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    transition: background 0.3s ease;
+}
+
+body.dark .dark-toggle {
+    background: #3a3a3c;
+}
+
+.dark-toggle .icon {
+    position: absolute;
+    font-size: 22px;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.dark-toggle .sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.dark-toggle .moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+body.dark .dark-toggle .sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+body.dark .dark-toggle .moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+/* Dark Mode – Header Text */
+body.dark .brand-small,
+body.dark .nav-link,
+body.dark .ghost-btn,
+body.dark .primary-btn {
+    color: #ffffff !important;
+}
+
+body.dark .ghost-btn {
+    border-color: rgba(255,255,255,0.4);
+}
+
+body.dark .primary-btn {
+    background: #0a84ff;
+    color: white;
+}
+
+/* Dark Mode – Footer fix */
+body.dark footer {
+    background: #1c1c1e !important;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark footer h3,
+body.dark footer p,
+body.dark footer div {
+    color: #f2f2f7 !important;
+}
+/* Dark Mode – Kategorien Schrift fix */
+body.dark .clean-item h3,
+body.dark .clean-item p {
+    color: #f2f2f7 !important;
+}
+
+
+
+/* -----------------------------------------
+   🍏 Dynamic Island – rechts unter dem Toggle
+------------------------------------------ */
+/* -----------------------------------------
+   🍏 Dynamic Island – rechts unter dem Toggle
+------------------------------------------ */
+/* -----------------------------------------
+   🍏 Dynamic Island – stabiler Text, kein Springen
+------------------------------------------ */
+
+.dynamic-island {
+    position: fixed !important;
+    top: 78px !important;
+    right: 20px !important;
+    width: 200px !important;      /* feste Breite */
+    height: 48px !important;      /* feste Höhe */
+    background: rgba(0,0,0,0.85) !important;
+    border-radius: 22px !important;
+    color: white !important;
+    font-family: Inter, sans-serif !important;
+    font-size: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.25s ease, background 0.35s ease !important;
+    z-index: 9999 !important;
+    white-space: nowrap !important; /* verhindert Zeilenumbruch */
+}
+
+/* Expanded state – nur Opacity, KEINE Größenänderung */
+.dynamic-island.show {
+    opacity: 1 !important;
+}
+
+/* Dark Mode */
+body.dark .dynamic-island {
+    background: rgba(40,40,40,0.85) !important;
+}
+
+.island-content {
+    padding: 0 16px !important;
+    text-align: center !important;
+    white-space: nowrap !important; /* verhindert Zeilenumbruch */
+}
+
+
+/* Footer Grundstruktur */
+.footer {
+    margin-top: 140px;
+    padding: 60px 32px;
+    background: white;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 26px;
+    margin: 0 0 20px;
+    color: #222;
+}
+
+.footer p {
+    font-family: Inter, sans-serif;
+    color: #555;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.footer-copy {
+    font-family: Inter, sans-serif;
+    color: #777;
+    font-size: 14px;
+    margin-top: 20px;
+}
+/* Dark Mode – Footer */
+body.dark .footer {
+    background: #1c1c1e !important;
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+body.dark .footer h3,
+body.dark .footer p,
+body.dark .footer div {
+    color: #f2f2f7 !important;
+}
+/* -----------------------------------------
+   🍏 KI Chatbot – Button
+------------------------------------------ */
+
+.chatbot-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: #0a84ff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+    z-index: 9999;
+}
+
+.chatbot-button:hover {
+    transform: translateY(-3px);
+}
+
+/* -----------------------------------------
+   🍏 KI Chatbot – Fenster (iOS Bottom Sheet)
+------------------------------------------ */
+
+.chatbot-window {
+    position: fixed;
+    bottom: -100%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    max-width: 420px;
+    height: 60%;
+    background: white;
+    border-radius: 22px 22px 0 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
+    transition: bottom 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+}
+
+.chatbot-window.show {
+    bottom: 0;
+}
+
+.chatbot-header {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #333;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    font-family: Inter, sans-serif;
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: 12px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.chatbot-input-area input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 15px;
+}
+
+.chatbot-send {
+    margin-left: 10px;
+    padding: 10px 16px;
+    background: #0a84ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+body.dark .chatbot-window {
+    background: #2c2c2e;
+    color: #f2f2f7;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark .chatbot-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark .chatbot-input-area input {
+    background: #3a3a3c;
+    border-color: rgba(255,255,255,0.2);
+    color: white;
+}

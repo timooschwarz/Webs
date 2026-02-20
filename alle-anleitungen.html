@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alle Anleitungen – IT Dokumentation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 140px auto;
+            padding: 0 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-family: Inter, sans-serif;
+        }
+
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            cursor: pointer;
+            font-family: Inter, sans-serif;
+            transition: 0.2s;
+        }
+
+        .filter-btn.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            padding: 22px;
+            border-radius: 14px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-family: Inter, sans-serif;
+        }
+
+        .card p {
+            margin: 0;
+            color: #555;
+            font-family: Inter, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="top-left">
+        <span class="brand-small">Timo Schwarz</span>
+    </div>
+
+    <nav class="top-nav">
+        <button class="nav-link" onclick="window.location.href='index.html'">Start</button>
+        <button class="nav-link active">Alle Anleitungen</button>
+        <button class="nav-link" onclick="window.location.href='Kategorien/netzlaufwerke.html'">Kategorien</button>
+        <button class="nav-link">Kontakt</button>
+        <button class="nav-link">FAQ</button>
+    </nav>
+
+    <div class="top-right">
+        <button class="primary-btn">Support</button>
+    </div>
+</header>
+
+<div class="page-wrapper">
+
+    <h1 style="font-family:'Playfair Display',serif; font-size:48px; margin-bottom:10px;">
+        Alle Anleitungen
+    </h1>
+    <p style="font-family:Inter, sans-serif; color:#555; margin-bottom:30px;">
+        Durchsuche alle verfügbaren IT‑Anleitungen nach Kategorien oder Stichwörtern.
+    </p>
+
+    <!-- SUCHFELD -->
+    <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Suche nach Stichwörtern wie ‚VPN‘, ‚Outlook‘, ‚Passwort‘ …">
+
+    <!-- FILTER -->
+    <div class="filter-row">
+        <button class="filter-btn active" onclick="filterCards('all', this)">Alle</button>
+        <button class="filter-btn" onclick="filterCards('windows', this)">Windows</button>
+        <button class="filter-btn" onclick="filterCards('email', this)">E-Mail</button>
+        <button class="filter-btn" onclick="filterCards('netzwerk', this)">Netzwerk</button>
+        <button class="filter-btn" onclick="filterCards('sicherheit', this)">Sicherheit</button>
+        <button class="filter-btn" onclick="filterCards('geraeteverwaltung', this)">Geräteverwaltung</button>
+        <button class="filter-btn" onclick="filterCards('software', this)">Software</button>
+    </div>
+
+    <!-- GRID MIT ALLEN ANLEITUNGEN -->
+    <div class="grid" id="cardGrid">
+
+        <a href="Kategorien/netzlaufwerke.html" class="card" data-category="windows" data-keywords="windows einstellungen tipps tricks">
+            <h3>Windows 11 Einstellungen</h3>
+            <p>Die wichtigsten Einstellungen für den Arbeitsalltag.</p>
+        </a>
+
+        <a href="Kategorien/netzlaufwerke.html" class="card" data-category="netzwerk" data-keywords="netzlaufwerk verbinden laufwerk vpn smb">
+            <h3>Wie verbinde ich ein Netzlaufwerk?</h3>
+            <p>Windows 10 & 11 – Schritt für Schritt.</p>
+        </a>
+
+        <a href="Kategorien/email-outlook.html" class="card" data-category="email" data-keywords="outlook email konto einrichten exchange">
+            <h3>Outlook: Firmenpostfach einrichten</h3>
+            <p>Exchange‑Konto korrekt konfigurieren.</p>
+        </a>
+
+        <a href="Kategorien/sicherheit.html" class="card" data-category="sicherheit" data-keywords="passwort ändern zurücksetzen sicherheit login">
+            <h3>Passwort ändern oder zurücksetzen</h3>
+            <p>Sicheres Passwortmanagement.</p>
+        </a>
+
+        <a href="Kategorien/geraeteverwaltung.html" class="card" data-category="geraeteverwaltung" data-keywords="intune autopilot mdm geräteverwaltung">
+            <h3>Geräteverwaltung (Intune)</h3>
+            <p>Autopilot, Compliance, Updates.</p>
+        </a>
+
+        <a href="Kategorien/software-tools.html" class="card" data-category="software" data-keywords="software installation updates tools programme">
+            <h3>Software & Tools</h3>
+            <p>Installationen und Fehlerbehebung.</p>
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+/* FILTER */
+function filterCards(category, btn) {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    document.querySelectorAll(".card").forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+/* LIVE-SUCHE */
+document.getElementById("searchInput").addEventListener("input", function () {
+    const search = this.value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+        const keywords = card.dataset.keywords.toLowerCase();
+        card.style.display = keywords.includes(search) ? "block" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
