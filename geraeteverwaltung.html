@@ -34,19 +34,19 @@
     <section class="hero">
         <h2>Geräteverwaltung Anleitungen</h2>
         <p class="hero-sub">
-            Intune, Autopilot, Updates und Compliance.
+            Intune, Autopilot, MDM und Geräteverwaltung im Unternehmen.
         </p>
 
         <div class="tag-container">
             <span class="tag">Intune</span>
             <span class="tag">Autopilot</span>
+            <span class="tag">MDM</span>
             <span class="tag">Updates</span>
-            <span class="tag">Compliance</span>
         </div>
 
         <img class="hero-image"
-             src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1471&auto=format&fit=crop"
-             alt="Geräte">
+             src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format"
+             alt="Geräteverwaltung">
     </section>
 
     <section class="section-block">
@@ -54,9 +54,10 @@
             <h3>Gerät bei Intune registrieren</h3>
             <p>So registrierst du dein Gerät bei Microsoft Intune:</p>
             <ol class="step-list">
-                <li>Gehe zu <strong>Einstellungen > Konten > Auf Arbeitsplatz zugreifen</strong>.</li>
-                <li>Klicke auf <strong>Verbinden</strong>.</li>
-                <li>Melde dich mit deinem Firmen-Konto an.</li>
+                <li>Gehe zu <strong>Einstellungen > Konten</strong>.</li>
+                <li>Klicke auf <strong>Arbeit oder Schule zugreifen</strong>.</li>
+                <li>Wähle <strong>Verbinden</strong> aus.</li>
+                <li>Gib deine Firmen-E-Mail-Adresse ein.</li>
                 <li>Folge den Anweisungen zur Registrierung.</li>
             </ol>
         </article>
@@ -64,26 +65,14 @@
 
     <section class="section-block">
         <article class="clean-item">
-            <h3>Windows Autopilot</h3>
-            <p>So richtest du ein neues Gerät ein:</p>
+            <h3>Autopilot-Gerät einrichten</h3>
+            <p>So richtest du ein Autopilot-Gerät ein:</p>
             <ol class="step-list">
-                <li>Schalte das neue Gerät ein.</li>
-                <li>Verbinde dich mit dem WLAN.</li>
-                <li>Melde dich mit deinen Firmen-Anmeldedaten an.</li>
-                <li>Das Gerät wird automatisch konfiguriert.</li>
-            </ol>
-        </article>
-    </section>
-
-    <section class="section-block">
-        <article class="clean-item">
-            <h3>Compliance-Richtlinien</h3>
-            <p>So prüfst du die Compliance deines Geräts:</p>
-            <ol class="step-list">
-                <li>Öffne die <strong>Unternehmensportal-App</strong>.</li>
-                <li>Gehe zu <strong>Geräte</strong>.</li>
-                <li>Prüfe den Compliance-Status.</li>
-                <li>Behebe ggf. gemeldete Probleme.</li>
+                <li>Schalte das Gerät ein und verbinde es mit dem Internet.</li>
+                <li>Drücke während des OOBE (Out of Box Experience) die Tastenkombination <strong>Windows + R</strong>.</li>
+                <li>Gib <code>sysprep</code> ein und bestätige.</li>
+                <li>Wähle "Out of Box Experience" und klicke auf "Neu starten".</li>
+                <li>Folge den Anweisungen am Bildschirm.</li>
             </ol>
         </article>
     </section>
@@ -95,6 +84,8 @@
         © 2026 Dein Name – Alle Rechte vorbehalten.
     </div>
 </footer>
+
+<script src="../global.js"></script>
 
 </body>
 </html>

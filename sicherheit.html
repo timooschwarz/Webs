@@ -32,85 +32,47 @@
 <main class="page">
 
     <section class="hero">
-        <h2>Alle Anleitungen zur IT‑Sicherheit</h2>
+        <h2>Sicherheit Anleitungen</h2>
         <p class="hero-sub">
-            Passwörter, MFA, Zero‑Trust und sichere Arbeitsweisen.
+            Passwörter, MFA, Zero‑Trust und mehr.
         </p>
 
         <div class="tag-container">
+            <span class="tag">Passwort</span>
             <span class="tag">MFA</span>
-            <span class="tag">Passwörter</span>
             <span class="tag">Zero‑Trust</span>
-            <span class="tag">Phishing</span>
+            <span class="tag">2FA</span>
         </div>
 
         <img class="hero-image"
-             src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1471&auto=format&fit=crop"
+             src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format"
              alt="Sicherheit">
     </section>
-
 
     <section class="section-block">
         <article class="clean-item">
             <h3>Passwort ändern</h3>
-            <p>So änderst du dein Firmenpasswort sicher:</p>
+            <p>So änderst du dein Firmenpasswort:</p>
             <ol class="step-list">
-                <li>Strg + Alt + Entf drücken.</li>
-                <li>„Kennwort ändern" auswählen.</li>
-                <li>Altes und neues Passwort eingeben.</li>
+                <li>Gehe auf die <strong>Passwort-Änderungsseite</strong>.</li>
+                <li>Gib dein aktuelles Passwort ein.</li>
+                <li>Gib ein neues Passwort ein (mind. 12 Zeichen, Groß- und Kleinbuchstaben, Zahlen, Sonderzeichen).</li>
+                <li>Bestätige das neue Passwort.</li>
+                <li>Klicke auf "Passwort ändern".</li>
             </ol>
         </article>
     </section>
 
-
     <section class="section-block">
         <article class="clean-item">
-            <h3>Lokales Adminpasswort verwenden</h3>
-
-            <p>
-                In manchen Fällen benötigst du lokale Administratorrechte, z. B. für Software‑Installationen
-                oder Systemeinstellungen. So gehst du vor:
-            </p>
-
+            <h3>MFA aktivieren</h3>
+            <p>So aktivierst du die Multi-Faktor-Authentifizierung:</p>
             <ol class="step-list">
-                <li>
-                    Öffne ein Ticket beim IT‑Support und beschreibe genau,
-                    warum du Administratorrechte benötigst (z. B. Installation, Konfiguration, Fehlerbehebung).
-                </li>
-                <li>
-                    Wenn du das lokale Adminpasswort erhältst, kannst du dich damit anmelden.
-                    Der Benutzername lautet:
-                    <br><br>
-                    <code>.\elo</code>
-                </li>
+                <li>Gehe zu den <strong>Sicherheitseinstellungen</strong>.</li>
+                <li>Wähle <strong>MFA aktivieren</strong>.</li>
+                <li>Wähle deine bevorzugte Methode (App, SMS oder E-Mail).</li>
+                <li>Folge den Anweisungen zur Bestätigung.</li>
             </ol>
-
-            <p>Beim Ausführen einer Anwendung mit Adminrechten erscheint die Benutzerkontensteuerung:</p>
-
-            <div class="zoom-wrapper">
-                <img class="admin-image"
-                     src="adminpasswort.png"
-                     alt="Benutzerkontensteuerung"
-                     onclick="openLightbox(this.src)">
-            </div>
-
-            <p>
-                Gib hier den Benutzer <strong>.\elo</strong> und das erhaltene Passwort ein,
-                um die Aktion zu bestätigen.
-            </p>
-        </article>
-    </section>
-
-
-    <section class="section-block">
-        <article class="clean-item">
-            <h3>Weitere Sicherheitsthemen</h3>
-            <ul class="step-list">
-                <li>MFA einrichten</li>
-                <li>Phishing‑E‑Mails erkennen</li>
-                <li>Zero‑Trust Grundlagen</li>
-                <li>Geräteverschlüsselung</li>
-            </ul>
         </article>
     </section>
 
@@ -122,14 +84,7 @@
     </div>
 </footer>
 
-<script>
-function openLightbox(src) {
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox show';
-    lightbox.innerHTML = `<img src="${src}" onclick="this.parentElement.classList.remove('show')">`;
-    document.body.appendChild(lightbox);
-}
-</script>
+<script src="../global.js"></script>
 
 </body>
 </html>
