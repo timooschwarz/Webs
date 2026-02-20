@@ -1,0 +1,249 @@
+/* GLOBAL */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f4;
+    color: #1a1a1a;
+    overflow-x: hidden;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* TOP BAR */
+.top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+/* Header zentrieren */
+.top-left,
+.top-right {
+    flex: 1;
+}
+
+.top-nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.top-bar.scrolled { background: rgba(255,255,255,0.9); }
+
+.brand-small {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    color: #222;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover { opacity: 0.6; }
+
+.primary-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+/* TITLE */
+.brand-fixed {
+    margin-top: 64px;
+    text-align: center;
+    padding: 40px 16px 10px;
+}
+
+.brand-fixed h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    color: #222;
+}
+
+/* PAGE */
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+}
+
+/* HERO */
+.hero { margin-top: 20px; }
+
+.hero h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+    color: #222;
+}
+
+.hero-sub {
+    margin: 0 0 24px;
+    color: #555;
+}
+
+/* TAGS */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    background: #e6e6e9;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333;
+}
+
+/* CONTENT BLOCKS */
+.section-block {
+    margin-top: 40px;
+}
+
+.clean-item {
+    padding: 28px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 16px;
+    background: white;
+}
+
+.clean-item h3 {
+    font-family: "Inter", sans-serif;
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #222;
+}
+
+.clean-item p {
+    font-family: "Inter", sans-serif;
+    margin: 0 0 10px;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.step-list {
+    margin: 10px 0 0;
+    padding-left: 18px;
+    font-family: "Inter", sans-serif;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.step-list li { margin-bottom: 6px; }
+
+/* IMAGE */
+.hero-image {
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+/* Admin Image */
+.admin-image {
+    width: 60%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 14px;
+    margin: 20px auto;
+    display: block;
+    cursor: zoom-in;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.25s ease;
+    z-index: 5000;
+}
+
+.lightbox.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 80px;
+    padding: 40px 32px;
+    background: white;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+footer .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    color: #777;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .top-bar { padding: 0 16px; }
+    .top-nav { display: none; }
+    .brand-fixed h1 { font-size: 30px; }
+    .hero h2 { font-size: 26px; }
+}
