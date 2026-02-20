@@ -29,6 +29,18 @@
     </nav>
 
     <div class="top-right">
+
+        <!-- 🍏 Gamification Block (NEU) -->
+        <div id="gamification-box">
+            <div id="level-display">Level 1 – 0 XP</div>
+
+            <div id="xp-bar-container">
+                <div id="xp-bar"></div>
+            </div>
+
+            <button id="open-achievements" class="trophy-btn">🏆</button>
+        </div>
+
         <button class="primary-btn">Support</button>
 
         <!-- 🌙 Dark Mode Toggle -->
@@ -38,6 +50,12 @@
         </button>
     </div>
 </header>
+
+<!-- 🍏 Achievement Overlay -->
+<div id="achievement-overlay">
+    <h2>🏆 Deine Erfolge</h2>
+    <div id="achievement-list"></div>
+</div>
 
 <main class="page">
 
@@ -183,55 +201,8 @@
     </div>
 </div>
 
-<footer class="footer">
-    <div class="footer-inner">
-        <h3>IT Dokumentation</h3>
-        <p>Einfache, klare und zuverlässige Anleitungen für deinen Arbeitsalltag.</p>
-        <div class="footer-copy">© 2026 Timo Schwarz – Alle Rechte vorbehalten.</div>
-    </div>
-</footer>
-
-
+<!-- Popup JS -->
 <script>
-/* 🍏 Dynamic Island */
-function showIsland(message) {
-    const island = document.getElementById("dynamicIsland");
-    const content = document.getElementById("dynamicIslandContent");
-
-    content.textContent = message;
-    island.classList.add("show");
-
-    setTimeout(() => {
-        island.classList.remove("show");
-    }, 2500);
-}
-
-/* 🌙 Dark Mode Toggle */
-const toggle = document.getElementById("darkModeToggle");
-
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark");
-}
-
-toggle.addEventListener("click", () => {
-
-    const isDark = document.body.classList.contains("dark");
-
-    if (isDark) {
-        document.body.classList.remove("dark");
-        localStorage.setItem("darkMode", "disabled");
-    } else {
-        document.body.classList.add("dark");
-        localStorage.setItem("darkMode", "enabled");
-    }
-
-    setTimeout(() => {
-        showIsland(isDark ? "☀️ Light Mode aktiviert" : "🌙 Dark Mode aktiviert");
-    }, 50);
-});
-
-
-/* Popups */
 function openOverlay(name) {
     document.getElementById("overlay-" + name).classList.add("show");
 }
@@ -240,131 +211,36 @@ function closeOverlay(name) {
 }
 </script>
 
-<!-- 🍏 KI Chatbot -->
-<div id="chatbot-button" class="chatbot-button">💬</div>
-
-<div id="chatbot-window" class="chatbot-window">
-    <div class="chatbot-header">
-        <span>KI‑Assistent (offline)</span>
-        <button id="chatbot-close" class="chatbot-close">×</button>
-    </div>
-
-    <div id="chatbot-messages" class="chatbot-messages"></div>
-
-    <div class="chatbot-input-area">
-        <input id="chatbot-input" type="text" placeholder="Frage mich etwas …">
-        <button id="chatbot-send" class="chatbot-send">➤</button>
-    </div>
-</div>
-
-<!-- WebLLM Script (lädt das Modell in den Browser) -->
-<script src="https://unpkg.com/@mlc-ai/web-llm@latest/dist/web-llm.min.js"></script>
-
+<!-- Dark Mode & Dynamic Island -->
 <script>
-/* 🍏 Chatbot öffnen/schließen */
-const botBtn = document.getElementById("chatbot-button");
-const botWin = document.getElementById("chatbot-window");
-const botClose = document.getElementById("chatbot-close");
-
-botBtn.onclick = () => botWin.classList.add("show");
-botClose.onclick = () => botWin.classList.remove("show");
-
-/* 🍏 Chatbot UI */
-const botMessages = document.getElementById("chatbot-messages");
-const botInput = document.getElementById("chatbot-input");
-const botSend = document.getElementById("chatbot-send");
-
-function botAddMessage(text, sender = "bot") {
-    const msg = document.createElement("div");
-    msg.style.margin = "8px 0";
-    msg.style.padding = "10px 14px";
-    msg.style.borderRadius = "12px";
-    msg.style.maxWidth = "80%";
-    msg.style.lineHeight = "1.4";
-
-    if (sender === "user") {
-        msg.style.background = "#0a84ff";
-        msg.style.color = "white";
-        msg.style.marginLeft = "auto";
-    } else {
-        msg.style.background = "rgba(0,0,0,0.07)";
-        msg.style.color = "#222";
-    }
-
-    msg.textContent = text;
-    botMessages.appendChild(msg);
-    botMessages.scrollTop = botMessages.scrollHeight;
+function showIsland(message) {
+    const island = document.getElementById("dynamicIsland");
+    const content = document.getElementById("dynamicIslandContent");
+    content.textContent = message;
+    island.classList.add("show");
+    setTimeout(() => island.classList.remove("show"), 2500);
 }
 
-/* ---------------------------------------------------
-   🍏 WebLLM Engine initialisieren (offline KI)
---------------------------------------------------- */
-
-let webllmEngine = null;
-let webllmReady = false;
-
-(async () => {
-    try {
-        botAddMessage("⏳ Starte lokales KI‑Modell, einen Moment bitte …");
-        webllmEngine = await webllm.createEngine("llama3.1-3b-instruct-q4f32_1-MLC");
-        webllmReady = true;
-        botAddMessage("✅ Lokales KI‑Modell ist bereit. Stelle deine Frage zur IT‑Dokumentation.");
-    } catch (e) {
-        console.error(e);
-        botAddMessage("⚠️ Konnte das lokale KI‑Modell nicht starten.");
-    }
-})();
-
-async function getAIResponse(userMessage) {
-    if (!webllmReady || !webllmEngine) {
-        return "Das KI‑Modell lädt noch. Bitte versuche es gleich erneut.";
+const darkToggle = document.getElementById("darkModeToggle");
+if (darkToggle) {
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark");
     }
 
-    const response = await webllmEngine.chat.completions.create({
-        messages: [
-            { role: "system", content: "Du bist ein freundlicher IT‑Assistent für diese Website. Antworte kurz, klar und auf Deutsch." },
-            { role: "user", content: userMessage }
-        ]
+    darkToggle.addEventListener("click", () => {
+        const isDark = document.body.classList.contains("dark");
+        if (isDark) {
+            document.body.classList.remove("dark");
+            localStorage.setItem("darkMode", "disabled");
+        } else {
+            document.body.classList.add("dark");
+            localStorage.setItem("darkMode", "enabled");
+        }
+        showIsland(isDark ? "☀️ Light Mode aktiviert" : "🌙 Dark Mode aktiviert");
     });
-
-    return response.choices[0].message.content;
 }
-
-/* ---------------------------------------------------
-   🍏 Chatbot Senden-Button
---------------------------------------------------- */
-
-botSend.onclick = async () => {
-    const text = botInput.value.trim();
-    if (!text) return;
-
-    botAddMessage(text, "user");
-    botInput.value = "";
-
-    const loading = document.createElement("div");
-    loading.textContent = "⏳ Einen Moment…";
-    loading.style.margin = "8px 0";
-    botMessages.appendChild(loading);
-    botMessages.scrollTop = botMessages.scrollHeight;
-
-    try {
-        const reply = await getAIResponse(text);
-        loading.remove();
-        botAddMessage(reply);
-    } catch (error) {
-        loading.remove();
-        botAddMessage("⚠️ Fehler: " + error.message);
-        console.error(error);
-    }
-};
-
-/* Enter-Taste zum Senden */
-botInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        botSend.click();
-    }
-});
 </script>
 
+<script src="global.js"></script>
 </body>
 </html>

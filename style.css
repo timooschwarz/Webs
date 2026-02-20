@@ -627,3 +627,490 @@ body.dark .chatbot-input-area input {
     border-color: rgba(255,255,255,0.2);
     color: white;
 }
+
+body.dark * {
+    color: #f2f2f7 !important;
+}
+/* Dark Mode – Tags sollen farbig bleiben */
+body.dark .tag {
+    color: #000 !important; /* schwarzer Text */
+    background: #e6e6e9 !important; /* heller Hintergrund */
+    border-color: rgba(0,0,0,0.2) !important;
+}
+/* Kategorien-Button im Header entfernen */
+.top-nav .nav-link:nth-child(2) {
+    display: none !important;
+}
+/* -----------------------------------------
+   🌙 Dark Mode – Alle Anleitungen Seite
+------------------------------------------ */
+
+/* Hintergrund */
+body.dark .page-wrapper {
+    color: #f2f2f7 !important;
+}
+
+/* Suchfeld */
+body.dark .search-bar {
+    background: #3a3a3c !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    color: #fff !important;
+}
+
+/* Filter-Buttons */
+body.dark .filter-btn {
+    background: #2c2c2e !important;
+    border-color: rgba(255,255,255,0.15) !important;
+    color: #f2f2f7 !important;
+}
+
+body.dark .filter-btn.active {
+    background: #0a84ff !important;
+    border-color: #0a84ff !important;
+    color: white !important;
+}
+
+/* Cards */
+body.dark .card {
+    background: #2c2c2e !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+body.dark .card h3 {
+    color: #fff !important;
+}
+
+body.dark .card p {
+    color: #ccc !important;
+}
+
+/* Hero-Titel oben */
+body.dark h1 {
+    color: #fff !important;
+}
+
+body.dark p {
+    color: #ccc !important;
+}
+/* -----------------------------------------
+   🌙 Dark Mode – Alle Anleitungen Seite
+------------------------------------------ */
+
+body.dark .page-wrapper {
+    color: #f2f2f7 !important;
+}
+
+/* Suchfeld */
+body.dark .search-bar {
+    background: #3a3a3c !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    color: #fff !important;
+}
+
+/* Filter-Buttons */
+body.dark .filter-btn {
+    background: #2c2c2e !important;
+    border-color: rgba(255,255,255,0.15) !important;
+    color: #f2f2f7 !important;
+}
+
+body.dark .filter-btn.active {
+    background: #0a84ff !important;
+    border-color: #0a84ff !important;
+    color: white !important;
+}
+
+/* Cards */
+body.dark .card {
+    background: #2c2c2e !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+body.dark .card h3 {
+    color: #fff !important;
+}
+
+body.dark .card p {
+    color: #ccc !important;
+}
+
+/* Titel + Beschreibung */
+body.dark h1 {
+    color: #fff !important;
+}
+
+body.dark p {
+    color: #ccc !important;
+}
+/* 🍏 Scroll Shadows (Apple Style) */
+.scroll-shadow-top,
+.scroll-shadow-bottom {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.scroll-shadow-top {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent);
+}
+
+.scroll-shadow-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.18), transparent);
+}
+
+body.dark .scroll-shadow-top {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15), transparent);
+}
+
+body.dark .scroll-shadow-bottom {
+    background: linear-gradient(to top, rgba(255,255,255,0.15), transparent);
+}
+/* 🍏 Breadcrumb Navigation (sichtbar & sticky) */
+.breadcrumb {
+    position: sticky;
+    top: 60px; /* sitzt unter der Dynamic Island */
+    z-index: 9997;
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    padding: 10px 16px;
+    border-radius: 12px;
+    margin: 10px 0 20px 0;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.breadcrumb.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.breadcrumb a {
+    color: #007aff;
+    text-decoration: none;
+}
+
+.breadcrumb span {
+    color: #777;
+}
+
+body.dark .breadcrumb {
+    background: rgba(30,30,30,0.6);
+    color: #ccc;
+}
+
+body.dark .breadcrumb span {
+    color: #888;
+}
+
+body.dark .breadcrumb a {
+    color: #0a84ff;
+}
+/* 🍏 Startscreen */
+#startscreen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+body.dark #startscreen {
+    --bg: #000;
+}
+
+#startscreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#startscreen .greeting {
+    font-size: 32px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: greetingFade 1.2s ease forwards;
+}
+
+@keyframes greetingFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 🍏 macOS + Microsoft Hybrid Login Startscreen */
+#startscreen {
+    position: fixed;
+    inset: 0;
+    background: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999999;
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Clean minimalist background */
+#startscreen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    z-index: -1;
+}
+
+/* Fade out */
+#startscreen.hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+/* Avatar */
+#startscreen .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    opacity: 0;
+    animation: avatarFade 1s ease forwards 0.3s;
+}
+
+/* Greeting */
+#startscreen .greeting {
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: greetingFade 1s ease forwards 0.6s;
+}
+
+/* Ladebalken */
+#startscreen .progress {
+    width: 220px;
+    height: 6px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    opacity: 0;
+    animation: barFade 1s ease forwards 1s;
+}
+
+#startscreen .progress .bar {
+    width: 0%;
+    height: 100%;
+    background: #0078d4; /* Microsoft Blue */
+    border-radius: 10px;
+    transition: width 2.5s ease;
+}
+
+/* Microsoft Login Box */
+#loginbox {
+    margin-top: 30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loginbox input {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    width: 220px;
+    margin-bottom: 10px;
+}
+
+#loginbox button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #0078d4;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    width: 220px;
+    transition: background 0.2s ease;
+}
+
+#loginbox button:hover {
+    background: #006cbe;
+}
+
+@keyframes avatarFade { to { opacity: 1; } }
+@keyframes greetingFade { to { opacity: 1; } }
+@keyframes barFade { to { opacity: 1; } }
+
+#startscreen .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: avatarFade 1s ease forwards 0.3s;
+}
+/* 🍏 Achievement Popup */
+.achievement-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+    font-size: 15px;
+    z-index: 99999;
+}
+
+.achievement-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🍏 XP-Leiste */
+#xp-bar-container {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    width: 180px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+#xp-bar {
+    height: 100%;
+    width: 0%;
+    background: #0078d4;
+    transition: width 0.4s ease;
+}
+
+#level-display {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    color: white;
+    font-size: 14px;
+    z-index: 9999;
+}
+
+/* 🍏 Trophäen-Overlay */
+#achievement-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    z-index: 999999;
+}
+
+#achievement-overlay h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.achievement-item {
+    background: rgba(255,255,255,0.1);
+    padding: 12px 18px;
+    border-radius: 10px;
+    width: 300px;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.achievement-item.locked {
+    opacity: 0.4;
+}
+/* 🍏 Gamification im Header – neue Position */
+#gamification-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 20px; /* Abstand vom Namen */
+}
+
+/* Level Text */
+#level-display {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* XP Bar */
+#xp-bar-container {
+    width: 140px;
+    height: 8px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#xp-bar {
+    height: 100%;
+    width: 0%;
+    background: #0078d4;
+    transition: width 0.4s ease;
+}
+
+/* Trophy Button */
+.trophy-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.trophy-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+#xp-bar-container {
+    display: none !important;
+}
+#level-display {
+    display: none !important;
+}
+
